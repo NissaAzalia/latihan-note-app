@@ -1,7 +1,7 @@
 import Register from './pages/Register'
 import Note from './pages/Note'
 import Login from './pages/Login'
-import { BrowserRouter,Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import { useEffect, useState } from 'react';
 import { getToken } from './api';
@@ -11,12 +11,12 @@ function App() {
     // panggil nilai isLoggedin dari context
     const { isLoggedin } = useAuth()
 
-    const [token,setToken] = useState(null);
+    const [token, setToken] = useState(null);
 
     const handleLogin = (tokens) => {
         setToken(tokens)
     }
-    
+
     const handleLogout = () => {
         setToken(null)
         localStorage.removeItem('token');
@@ -25,17 +25,26 @@ function App() {
     useEffect(() => {
         const tokens = getToken()
         setToken(tokens);
-    },[])
+    }, [])
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<Layout token={token} onLogout={handleLogout}/>}>
-                    <Route path={"/Note"} element={<Note />} /> 
-                    <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
-                    <Route path={"/Registrasi"} element={<Register />} />
-
+                <Route element={<Layout token={token} onLogout={handleLogout} />}>
+                    {isLoggedin ? (
+                        <Route>
+                            <Route path={"/Note"} element={<Note />} />,
+                            <Route path="/Login" element={<Navigate to={"/Note"} />} />
+                        </Route>
+                    ) : (
+                        <>
+                            <Route path={"/Registrasi"} element={<Register />} />
+                            <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                            <Route path="*" element={<Navigate to={"/Login"} />} />
+                        </>
+                    )}
                 </Route>
+
                 {/* {token !== null ? 
                     <Route>
                         <Route path={"/Note"} element={<Note />} /> 
@@ -45,11 +54,12 @@ function App() {
                 {
                     token !== null ? null : 
                    <Route>
+                     <Route path={"/Registrasi"} element={<Registrasi />} />
                      <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
                    </Route>
                 }
                 </Route>
-                <Route path="*" element={<Navigate to={"/Login"}/>}/>  */}
+                <Route path="*" element={<Navigate to={"/Login"}/>}/> */}
             </Routes>
 
         </BrowserRouter>

@@ -26,7 +26,7 @@ export default function Layout({ token, onLogout }) {
                     {token !== null ? null : <Link to={'/Login'} className="font-bold">  <p>Login</p> </Link>}
                     <button className="font-bold" onClick={handleLogout} >Logout</button>
                     <Link to={"/Note"}><span className="text-white font-sans hover:text-slate-300">Notes</span></Link>
-                    {token !== null ? <Link ><span className="text-white font-sans hover:text-slate-300">Logout</span></Link> : null}
+                    {/* {token !== null ? <Link ><span className="text-white font-sans hover:text-slate-300">Logout</span></Link> : null} */}
                 </nav>
             </div>
             <Outlet />

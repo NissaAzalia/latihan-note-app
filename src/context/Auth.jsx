@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-import { handleLogin } from "../api"
+import { handleLogin, setTokens } from "../api"
 
 // nilai default 
 const initialAuthState = {
@@ -32,9 +32,10 @@ const AuthProvider = ({children}) => {
 
         // jika berhasil maka setIsLoggedin -> true
         // simpan token ke dalam localstorage
-        // jika gagal tampilkan peringatan
         setIsLoggedin(true)
-        console.log('test kepanggil', isLoggedin)
+        setTokens(apiResult.data.data.accessToken)
+        // jika gagal tampilkan peringatan
+        
     }
 
     const doLogout = () => {
