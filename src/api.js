@@ -82,6 +82,8 @@ export const deleteNote = async (id) => {
 
 export const editNote = async (id, title, content, writer) => {
   const token = getToken();
+
+  
   const edits = await axios
     .put(
       http + "notes/" + id,

@@ -6,8 +6,8 @@ import { useAuth } from "../context/Auth";
 export default function Login ({onLogin}){
     const { doLogin } = useAuth()
 
-    const[email,setEmail] = useState("");
-    const[password,setPassword] = useState("");
+    const[email,setEmail] = useState();
+    const[password,setPassword] = useState();
 
     const handleClick = async()=>{
         doLogin(email,password)

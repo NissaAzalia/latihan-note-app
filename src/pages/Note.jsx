@@ -10,16 +10,16 @@ function Note() {
 
   const handleFetchData = async () => {
     const apiFetch = await tampilkan();
-    setNotes(apiFetch.data.data ?? null)
+    setNotes(apiFetch.data.data.notes ?? null)
   }
 
-  const handleAddData = async (title,content) => {
-    await addNote(title,content)
+  const handleAddData = async (title, content) => {
+    await addNote(title, content)
     handleFetchData()
   }
 
-  const handleUpdate = async (id,title,content,writer) => {
-    await editNote(id,title,content,writer)
+  const handleUpdate = async (id, title, content, writer) => {
+    await editNote(id, title, content, writer)
     handleFetchData()
   }
 
@@ -49,15 +49,15 @@ function Note() {
           {currentNoteId ? <FormEdit onEdit={handleUpdate} targetValue={notes !== null ? notes.filter(e => e.id === currentNoteId)[0] : null} notes={notes} onCancel={cancelEdit} /> : <FormTambah onAdd={handleAddData} onCancel={cancelEdit} />}
 
           <div className='flex flex-row flex-wrap justify-center'>
-            {notes !== null ? notes.map((note) => (
+            {notes.map(note =>
               <NoteItem
                 key={note.id}
                 id={note.id}
                 title={note.title}
                 content={note.content}
                 onDelete={handleDelete}
-                onEdit={Edit} />
-            )) : null}
+                onEdit={Edit} />)}
+
           </div>
         </div>
       </div>
