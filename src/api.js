@@ -23,6 +23,9 @@ export const setTokens = (token) => {
 export const getToken = () => {
   return localStorage.getItem("token") ?? null;
 };
+ export const removeToken = () => {
+  localStorage.removeItem("token")
+ }
 
 export const tampilkan = async () => {
   const token = getToken();

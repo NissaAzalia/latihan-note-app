@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNoteContext } from "./NoteContext";
 
 export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
+    const { handleUpdate, Edit, CancelEdit } = useNoteContext()
+
     const [title, setTitle] = useState(targetValue !== null ? targetValue.title : null)
     const [note, setNotes] = useState(targetValue !== null ? targetValue.content : null)
     const [writer, setWriter] = useState(targetValue !== null ? targetValue.writer : null);
@@ -15,7 +18,7 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
             setTitle("")
             setNotes("")
             setWriter("")
-            onCancel()
+            CancelEdit()
         }
     }, [targetValue]);
 
@@ -25,6 +28,7 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
             onEdit(targetValue.id, title, note,writer);
             setTitle("")
             setNotes("")
+            CancelEdit()
         }
     };
 
@@ -62,7 +66,7 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
                     placeholder='note'
                     className='textarea'>
                 </textarea>
-                <input type="text"/>
+                
 
                 <button
                     onClick={handleEdit}
@@ -71,7 +75,7 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
                 </button>
 
                 <button
-                    onClick={() => onCancel()}
+                    onClick={CancelEdit}
                     className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-2">
                     Cancel
                 </button>

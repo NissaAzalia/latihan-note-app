@@ -1,20 +1,18 @@
 import { useState } from "react";
+import { useNoteContext } from "./NoteContext";
 
-function FormTambah({ onAdd }) {
+function FormTambah() {
+
+    const {handleAddData} = useNoteContext();
+
     const [title, setTitle] = useState("")
     const [note, setNotes] = useState("")
 
     const handleSubmit = () => {
-        onAdd(title, note);
+        handleAddData(title, note);
         setTitle("")
         setNotes("")
     };
-
-    const handleCancel = ()=>{
-        setTitle("")
-        setNotes("")
-    }
-
     
     return (
         <div className="container" >
@@ -40,16 +38,16 @@ function FormTambah({ onAdd }) {
                 </textarea>
 
                 <button
-                    onClick={() => handleSubmit()}
+                    onClick={handleSubmit}
                     className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-4">
                     Add Note
                 </button>
 
-                <button
-                    onClick={()=> handleCancel()}
+                {/* <button
+                    onClick={handleCancel}
                     className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-2">
                     Cancel
-                </button>
+                </button> */}
             
             </div>
         </div>

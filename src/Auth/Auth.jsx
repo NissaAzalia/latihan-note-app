@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { getToken, handleLogin, setTokens } from "../api"
+import { getToken, handleLogin, removeToken, setTokens } from "../api"
 
 // nilai default 
 const initialAuthState = {
@@ -20,8 +20,8 @@ const useAuth = ()=>{
 const AuthProvider = ({children}) => {
     // state
     const [isLoggedin, setIsLoggedin] = useState(false)
+
     useEffect(() => {
-        
         const token = getToken()
         if(token != null){
             setIsLoggedin (true)
@@ -41,14 +41,14 @@ const AuthProvider = ({children}) => {
         // simpan token ke dalam localstorage
         setIsLoggedin(true)
         setTokens(apiResult.data.data.accessToken)
-        // jika gagal tampilkan peringatan
-        
+        // jika gagal tampilkan peringatan  
     }
 
     const doLogout = () => {
         setIsLoggedin(false)
-        localStorage.removeItem('token')
+        removeToken()
     }
+    
     // return provider 
     return (
         <AuthContext.Provider value={ {isLoggedin,doLogin,doLogout} }>

@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { useAuth } from "./context/Auth";
+import { useAuth } from "./Auth/Auth";
 
 export default function Layout() {
     const { isLoggedin, doLogout } = useAuth()
@@ -17,11 +17,11 @@ export default function Layout() {
                 )} */}
 
                 {isLoggedin ? <>
-                    <Link to={"/Note"}><span className="text-white font-sans hover:text-slate-300">Notes</span></Link>
-                    <Link onClick={() => doLogout()}> <span className="text-white font-sans hover:text-slate-300">Logout</span> </Link>
+                    <Link to={"/Note"}><span className="text-white font-bold font-sans hover:text-slate-300">Notes</span></Link>
+                    <Link onClick={() => doLogout()}> <span className="text-white font-bold font-sans hover:text-slate-300">Logout</span> </Link>
                 </> : <>
-                    <Link to={'/Registrasi'} className="text-white font-sans hover:text-slate-300"> <p>Registrasi</p> </Link>
-                    <Link to={'/Login'} className="text-white font-sans hover:text-slate-300">  <p>Login</p> </Link>
+                    <Link to={'/Registrasi'} className="text-white font-bold font-sans hover:text-slate-300"> <p>Registrasi</p> </Link>
+                    <Link to={'/Login'} className="text-white font-sans font-bold hover:text-slate-300">  <p>Login</p> </Link>
                 </>}
 
                 

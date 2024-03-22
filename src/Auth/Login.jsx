@@ -1,9 +1,9 @@
 import { handleLogin, setTokens } from "../api";
 import { useState } from "react";
-import { useAuth } from "../context/Auth";
+import { useAuth } from "./Auth";
 
 
-export default function Login ({onLogin}){
+export default function Login (){
     const { doLogin } = useAuth()
 
     const[email,setEmail] = useState();

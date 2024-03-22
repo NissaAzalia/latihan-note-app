@@ -4,23 +4,23 @@ import { Register } from "../api";
 
 export default function Registrasi() {
 
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
+    // const [name,setName] = useState("");
+    // const [email,setEmail] = useState("");
+    // const [password,setPassword] = useState("");
 
-    const handleRegister = async () => {
-        const apiRegis = await Register (name,email,password);
-        if(apiRegis.status === 201){
-            setName("")
-            setEmail("")
-            setPassword("")
-            alert(apiRegis.data.message)
-        }else{
-            const {name= [],email = [], password = []} = apiRegis.data.errors;
-            const err = [...name,...email,...password]
-            alert(err.join("\n"));
-        }
-    }
+    // const handleRegister = async () => {
+    //     const apiRegis = await Register (name,email,password);
+    //     if(apiRegis.status === 201){
+    //         setName("")
+    //         setEmail("")
+    //         setPassword("")
+    //         alert(apiRegis.data.message)
+    //     }else{
+    //         const {name= [],email = [], password = []} = apiRegis.data.errors;
+    //         const err = [...name,...email,...password]
+    //         alert(err.join("\n"));
+    //     }
+    // }
 
     
 
