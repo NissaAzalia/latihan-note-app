@@ -16,14 +16,14 @@ function FormTambah() {
     
     return (
         <div className="container" >
-            <div className='flex flex-col'>
+            <div className='flex flex-col md:ml-[0px] ml-[60px]'>
                 <input
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                     type="text"
                     placeholder='title'
                     name='title'
-                    className="input"
+                    className="rounded-lg bg-[#FFFFEC] p-2 mb-4 md:w-[500px] w-[400px] "
                 />
 
                 <textarea
@@ -34,12 +34,12 @@ function FormTambah() {
                     cols="30"
                     rows="5"
                     placeholder='note'
-                    className="textarea">
+                    className="textarea md:w-[500px] w-[400px]">
                 </textarea>
 
                 <button
                     onClick={handleSubmit}
-                    className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-4">
+                    className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-4 md:w-[500px] w-[400px]">
                     Add Note
                 </button>
 

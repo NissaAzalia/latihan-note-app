@@ -40,11 +40,11 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
 
     return (
         <div className="container" >
-            <div className='flex flex-col'>
+            <div className='flex flex-col gap-[10px]'>
                 <input
                     value={writer}
                     type="hidden"
-                    className='input'
+                    className='rounded-lg bg-[#FFFFEC] p-2 mb-[20px] w-[100px]'
                 />
 
                 <input
@@ -53,7 +53,7 @@ export default function FormEdit({ onEdit, notes, onCancel, targetValue }) {
                     type="text"
                     placeholder='title'
                     name='title'
-                    className='input'
+                    className='rounded-lg bg-[#FFFFEC]  mb-[20px] w-[100px]'
                 />
 
                 <textarea

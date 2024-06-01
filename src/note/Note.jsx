@@ -56,8 +56,8 @@ function Note() {
   return (
     <>
       <div className='mx'>
-        <div className="App w-[100%] flex flex-col items-center">
-          <h1 className='text-center text-4xl p-5 text-black' >Notes</h1>
+        <div className="App md:w-[100%] w-auto flex flex-col items-center">
+          <h1 className='text-center text-4xl p-5 md:ml-[0px] ml-[200px] mt-[20px] text-black' >Notes</h1>
           {currentNoteId ? <FormEdit 
           targetValue={notes !== null ? notes.filter(e => e.id === currentNoteId)[0] : null} 
           onEdit = { handleUpdate } 
