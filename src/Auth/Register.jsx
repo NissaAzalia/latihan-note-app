@@ -26,19 +26,19 @@ export default function Registrasi() {
 
     return (
         <>
-            <div className="">
+            <div className="md:ml-[0px] ml-[40%]">
                 <h1 className="judul"> Registrasi</h1>
-                <div className=" my-[30px] mx-auto flex flex-col gap-1 w-[500px]">
+                <div className=" my-[30px] md:mx-auto  flex flex-col gap-1 md:w-[500px]">
                     <label htmlFor="">Nama</label>
-                    <input type="text" className="input" placeholder="Masukkan Nama" />
+                    <input type="text" className="input md:w-[500px] w-[300px]" placeholder="Masukkan Nama" />
 
                     <label htmlFor="">Email</label>
-                    <input type="email" className="input" placeholder="Masukkan Email" />
+                    <input type="email" className="input md:w-[500px] w-[300px] " placeholder="Masukkan Email" />
 
                     <label htmlFor="">Password</label>
-                    <input type="text" className="input" placeholder="Masukkan Password" />
+                    <input type="text" className="input md:w-[500px] w-[300px] " placeholder="Masukkan Password" />
                     
-                    <button className="bg-[#ffffff] text-black text-lg rounded-lg px-5 py-3 mt-2">Registrasi</button>
+                    <button className="bg-[#ffffff] text-black text-lg md:w-[500px] w-[300px] rounded-lg px-5 py-3 mt-2">Registrasi</button>
                 </div>
             </div>
 

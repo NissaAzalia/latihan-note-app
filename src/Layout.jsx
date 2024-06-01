@@ -6,7 +6,7 @@ export default function Layout() {
 
     return (
         <>
-            <div className=" bg-[#928564] h-[55px] justify-around py-2 md:w-[100%] w-[535px] flex  ">
+            <div className=" bg-[#928564] h-[55px] justify-around py-2 md:w-[100%] w-[560px] flex  ">
                 <h1 className="text-2xl  font-bold text-white">Form</h1>
 
                 {/* {isLoggedin ? (
